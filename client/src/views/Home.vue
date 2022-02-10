@@ -12,6 +12,13 @@
       />
       <button>Submit</button>
     </form>
+
+    <div :key="element.id" v-for="element in searchedProducts">
+      <div v-if="searchedProducts">
+        <h1>{{ element.title }}</h1>
+        <img :src="element.image" alt="post" />
+      </div>
+    </div>
   </div>
 </template>
 

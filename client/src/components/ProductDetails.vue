@@ -7,9 +7,11 @@
       <button @click="clickTrue">Update</button>
       <button @click="deleteProduct">Delete</button>
       <h1>hi</h1>
-      <h1>{{ details.title }}</h1>
-      <img :src="details.image" alt="new" />
-      <h2>{{ details.brand }}</h2>
+      <div v-if="details">
+        <h1>{{ details.title }}</h1>
+        <img :src="details.image" alt="new" />
+        <h2>{{ details.brand }}</h2>
+      </div>
       <CreateComment />
       <Comments />
     </div>
