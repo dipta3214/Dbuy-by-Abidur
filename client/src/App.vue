@@ -74,7 +74,7 @@ export default {
 }
 
 #nav {
-  padding: 30px;
+  padding: 31px;
 }
 
 #nav a {
