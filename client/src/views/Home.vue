@@ -32,7 +32,6 @@ export default {
       axios
         .get('http://localhost:8000/api/v1/users/me')
         .then((response) => {
-          console.log(response);
           const username = response.data.username;
           const id = response.data.id;
 
