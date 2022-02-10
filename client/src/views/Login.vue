@@ -34,8 +34,6 @@ export default {
       axios
         .post('http://localhost:8000/api/v1/jwt/create/', formData)
         .then((response) => {
-          // console.log(response);
-
           const access = response.data.access;
           const refresh = response.data.refresh;
 
