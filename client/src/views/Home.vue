@@ -50,7 +50,6 @@ export default {
     async getProducts() {
       const res = await axios.get('http://localhost:8000/products/');
       this.products = res.data;
-      console.log(res);
     },
     getDetails(id) {
       this.$router.push(`/products/${id}`);
