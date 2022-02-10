@@ -1,0 +1,4 @@
+-- settings.sql
+CREATE DATABASE dbuy;
+CREATE USER dbuyuser WITH PASSWORD 'dbuy';
+GRANT ALL PRIVILEGES ON DATABASE dbuy TO dbuyuser;
