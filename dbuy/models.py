@@ -25,3 +25,18 @@ class Comment(models.Model):
     user_id = models.CharField(max_length=100)
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name="products")
+
+    def __str__(self):
+        return self.username
+
+
+class Contact(models.Model):
+    username = models.CharField(max_length=100)
+    user_id = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100, blank=True, null=True)
+    instagram_username = models.CharField(
+        max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.username

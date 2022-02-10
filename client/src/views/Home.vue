@@ -3,8 +3,13 @@
     <span :src="user_data" v-if="user_data"
       ><h1>Welcome {{ user_data }}! What are you looking for?</h1></span
     >
-    <form>
-      <input type="text" placeholder="Enter what your looking for" />
+    <form @submit.prevent="searchProducts">
+      <input
+        type="text"
+        placeholder="Enter what your looking for"
+        name="search"
+        @change="handleChange"
+      />
       <button>Submit</button>
     </form>
   </div>
@@ -16,10 +21,13 @@ export default {
   name: 'Home',
   data() {
     return {
-      user_data: ''
+      user_data: '',
+      search: '-',
+      searchedProducts: ''
     };
   },
   mounted: async function () {
+    await this.searchProducts();
     this.getMe();
   },
   methods: {
@@ -41,6 +49,15 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    handleChange(e) {
+      this[e.target.name] = e.target.value;
+    },
+    async searchProducts() {
+      const res = await axios.get(
+        `http://localhost:8000/products?search=${this.search}`
+      );
+      this.searchedProducts = res.data;
     }
   }
 };

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Comment
+from .models import Product, Comment, Contact
 
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
@@ -34,3 +34,10 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
         model = Comment
         fields = ('id', 'username', 'content',
                   'user_id', 'product', 'product_id',)
+
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = ('id', 'username', 'user_id', 'email',
+                  'phone', 'instagram_username',)
