@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>new</h2>
     <div :key="element.id" v-for="element in comments">
       <div v-if="parseInt($route.params.id) === element.product_id">
         <h3>{{ element.username }}</h3>
