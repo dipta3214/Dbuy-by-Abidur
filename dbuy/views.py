@@ -15,7 +15,7 @@ class ProductList(generics.ListCreateAPIView):
     # Filter
     filter_backends = [DjangoFilterBackend,
                        filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['color']
+    filterset_fields = ['color', 'location']
     # Search
     search_fields = ['title', 'brand']
     # Ordering

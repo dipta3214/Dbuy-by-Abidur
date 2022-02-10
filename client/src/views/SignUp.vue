@@ -4,6 +4,8 @@
     <form @submit.prevent="submitForm">
       <label for="username">Username: </label>
       <input type="text" name="username" v-model="username" />
+      <label for="email">Email: </label>
+      <input type="email" name="email" v-model="email" />
       <label for="password">Password: </label>
       <input type="password" name="password" v-model="password" />
       <button type="submit">Sign Up</button>
@@ -18,6 +20,7 @@ export default {
   data() {
     return {
       username: ``,
+      email: ``,
       password: ``
     };
   },
@@ -25,6 +28,7 @@ export default {
     submitForm() {
       const formData = {
         username: this.username,
+        email: this.email,
         password: this.password
       };
 

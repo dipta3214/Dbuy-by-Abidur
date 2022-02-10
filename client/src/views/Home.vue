@@ -1,15 +1,12 @@
 <template>
   <div class="home">
-    <span :src="user_data">{{ user_data }}</span>
-    <div
-      :key="element.id"
-      v-for="element in products"
-      @click="getDetails(element.id)"
+    <span :src="user_data" v-if="user_data"
+      ><h1>Welcome {{ user_data }}! What are you looking for?</h1></span
     >
-      <h2>{{ element.title }}</h2>
-      <img :src="element.image" />
-    </div>
-    <h2>hi</h2>
+    <form>
+      <input type="text" placeholder="Enter what your looking for" />
+      <button>Submit</button>
+    </form>
   </div>
 </template>
 
@@ -19,12 +16,10 @@ export default {
   name: 'Home',
   data() {
     return {
-      user_data: '',
-      products: null
+      user_data: ''
     };
   },
   mounted: async function () {
-    await this.getProducts();
     this.getMe();
   },
   methods: {
@@ -46,13 +41,6 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    },
-    async getProducts() {
-      const res = await axios.get('http://localhost:8000/products/');
-      this.products = res.data;
-    },
-    getDetails(id) {
-      this.$router.push(`/products/${id}`);
     }
   }
 };
