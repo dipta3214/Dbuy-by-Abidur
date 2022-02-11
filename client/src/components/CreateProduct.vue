@@ -66,6 +66,7 @@
           name="brand"
           @change="handleChange"
           placeholder="Brand"
+          class="field-style field-full align-none"
         />
       </li>
 
@@ -75,6 +76,7 @@
           name="color"
           @change="handleChange"
           placeholder="Color"
+          class="field-style field-full align-none"
         />
       </li>
 
@@ -84,6 +86,7 @@
           name="price"
           @change="handleChange"
           placeholder="Price"
+          class="field-style field-full align-none"
         />
       </li>
 
