@@ -76,7 +76,7 @@ export default {
   mounted() {
     setInterval(() => {
       this.getAccess();
-    }, 60000);
+    }, 90000);
   },
   methods: {
     submitForm(e) {
@@ -87,14 +87,13 @@ export default {
 
       window.location.reload();
     },
+    // Followed this youtube tutorial for the JWT auth https://youtu.be/IsOtVyYbPto
     getAccess() {
-      const accessData = {
-        refresh: this.$store.state.refresh
-      };
-
       if (this.$store.state.access !== '') {
         axios
-          .post('http://localhost:8000/api/v1/jwt/refresh/', accessData)
+          .post('http://localhost:8000/api/v1/jwt/refresh/', {
+            refresh: this.$store.state.refresh
+          })
           .then((response) => {
             const access = response.data.access;
             console.log(response.data.access);
