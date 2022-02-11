@@ -76,7 +76,7 @@ export default {
   mounted() {
     setInterval(() => {
       this.getAccess();
-    }, 90000);
+    }, 60000);
   },
   methods: {
     submitForm(e) {
