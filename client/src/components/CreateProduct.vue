@@ -1,34 +1,90 @@
 <template>
   <div>
     <form @submit.prevent="handleSubmit">
-      <label for="title">Title: </label>
-      <input type="text" name="title" @change="handleChange" />
+      <li>
+        <input
+          type="text"
+          name="title"
+          @change="handleChange"
+          placeholder="Title"
+          class="field-style field-full align-none"
+        />
+      </li>
 
-      <label for="category">Category: </label>
-      <input type="text" name="category" @change="handleChange" />
+      <li>
+        <input
+          type="text"
+          name="category"
+          @change="handleChange"
+          placeholder="Category"
+          class="field-style field-full align-none"
+        />
+      </li>
 
-      <label for="image">Image: </label>
-      <input type="text" name="image" @change="handleChange" />
+      <li>
+        <input
+          type="text"
+          name="image"
+          @change="handleChange"
+          placeholder="Image(URL)"
+          class="field-style field-full align-none"
+        />
+      </li>
 
-      <label for="description">Description: </label>
-      <input type="text" name="description" @change="handleChange" />
+      <li>
+        <textarea
+          name="description"
+          @change="handleChange"
+          placeholder="Description"
+        ></textarea>
+      </li>
 
-      <label for="location">Location: </label>
-      <input type="text" name="location" @change="handleChange" />
+      <li>
+        <input
+          type="text"
+          name="location"
+          @change="handleChange"
+          placeholder="Location"
+        />
+      </li>
 
-      <label for="condition">Condition: </label>
-      <input type="text" name="condition" @change="handleChange" />
+      <li>
+        <input
+          type="text"
+          name="condition"
+          @change="handleChange"
+          placeholder="Condition"
+        />
+      </li>
 
-      <label for="brand">Brand: </label>
-      <input type="text" name="brand" @change="handleChange" />
+      <li>
+        <input
+          type="text"
+          name="brand"
+          @change="handleChange"
+          placeholder="Brand"
+        />
+      </li>
 
-      <label for="color">Color: </label>
-      <input type="text" name="color" @change="handleChange" />
+      <li>
+        <input
+          type="text"
+          name="color"
+          @change="handleChange"
+          placeholder="Color"
+        />
+      </li>
 
-      <label for="price">Price: </label>
-      <input type="text" name="price" @change="handleChange" />
+      <li>
+        <input
+          type="text"
+          name="price"
+          @change="handleChange"
+          placeholder="Price"
+        />
+      </li>
 
-      <button type="submit">Submit</button>
+      <input type="submit" value="Post" />
     </form>
   </div>
 </template>

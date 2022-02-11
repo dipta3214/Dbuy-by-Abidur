@@ -74,6 +74,7 @@ export default {
 </script>
 
 <style scoped>
+/* Style design was inspired from sanwebe.com */
 .form {
   max-width: 450px;
   background: #fafafa;
