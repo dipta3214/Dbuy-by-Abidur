@@ -2,42 +2,57 @@
   <div class="body">
     <div class="signup">
       <div class="title">Registration</div>
-      <form @submit.prevent="submitForm">
-        <div class="user-detail">
-          <div class="input-box">
-            <label for="username">Username: </label>
-            <input type="text" name="username" v-model="username" />
-          </div>
-          <div class="input-box">
-            <label for="email">Email: </label>
-            <input type="email" name="email" v-model="email" />
-          </div>
-          <div class="input-box">
-            <label for="password">Password: </label>
-            <input type="password" name="password" v-model="password" />
-          </div>
-          <div class="input-box">
-            <label for="phone">Phone: </label>
+      <form @submit.prevent="submitForm" class="form">
+        <ul>
+          <li>
+            <input
+              type="text"
+              name="username"
+              v-model="username"
+              placeholder="username"
+              class="field-style field-split align-left"
+            />
+
+            <input
+              type="email"
+              name="email"
+              v-model="email"
+              placeholder="email"
+              class="field-style field-split align-right"
+            />
+          </li>
+
+          <li>
+            <input
+              type="password"
+              name="password"
+              v-model="password"
+              placeholder="password"
+              class="field-style field-full align-none"
+            />
+          </li>
+
+          <li>
             <input
               type="phone"
               name="phone"
               v-model="phone"
-              placeholder="optional"
+              placeholder="Phone(optional)"
+              class="field-style field-split align-left"
             />
-          </div>
-          <div class="input-box">
-            <label for="insta">Instagram username: </label>
+
             <input
               type="insta"
               name="insta"
               v-model="insta"
-              placeholder="optional"
+              placeholder="Instagram(optional)"
+              class="field-style field-split align-right"
             />
-          </div>
-          <div class="button">
-            <button type="submit">Sign Up</button>
-          </div>
-        </div>
+          </li>
+          <li>
+            <input type="submit" value="Sign up" />
+          </li>
+        </ul>
       </form>
     </div>
   </div>
@@ -77,74 +92,74 @@ export default {
 </script>
 
 <style scoped>
-.body {
-  height: 100vh;
-
-  padding: 10px;
-  background: linear-gradient(#e1e6eb, #fcfcfc, #dae7f5);
+.form {
+  max-width: 450px;
+  background: #fafafa;
+  padding: 30px;
+  margin: 50px auto;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #305a72;
 }
-
-.signup {
-  display: 'flex';
-  justify-content: center;
-  align-items: center;
-  max-width: 700px;
-  width: 100%;
-  background: #fff;
-  padding: 25px 30px;
-  border-radius: 5px;
+.form ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-
-.signup .title {
-  font-size: 25px;
-  font-weight: 500;
-  position: relative;
-}
-
-.signup .title:before {
-  content: '';
-  position: absolute;
-  height: 3px;
-  width: 30px;
-  background: #9b59b6;
-}
-
-.signup form .user-detail {
-  margin: 20px 0 12px 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.form .user-detail .input-box {
-  margin-bottom: 15px;
-  width: calc(100% / 2 - 20px);
-}
-
-.user-detail .input-box label {
+.form ul li {
   display: block;
-  font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  min-height: 35px;
 }
-
-.user-detail .input-box input {
-  height: 45px;
-  width: 100%;
+.form ul li .field-style {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 8px;
   outline: none;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding-left: 15px;
-  font-size: 16px;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+  border: 1px solid #b0cfe0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
-
-.user-detail .input-box input:focus,
-.user-detail .input-box input:valid {
-  border-color: #ccc;
+.form ul li .field-style:focus {
+  box-shadow: 0 0 5px #b0cfe0;
+  border: 1px solid #b0cfe0;
 }
-
-form .button {
-  height: 45px;
-  margin: 45px 0;
+.form ul li .field-split {
+  width: 49%;
+}
+.form ul li .field-full {
+  width: 100%;
+}
+.form ul li input.align-left {
+  float: left;
+}
+.form ul li input.align-right {
+  float: right;
+}
+.form ul li textarea {
+  width: 100%;
+  height: 100px;
+}
+.form ul li input[type='button'],
+.form ul li input[type='submit'] {
+  -moz-box-shadow: inset 0px 1px 0px 0px #3985b1;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #3985b1;
+  box-shadow: inset 0px 1px 0px 0px #3985b1;
+  background-color: #216288;
+  border: 1px solid #17445e;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 8px 18px;
+  text-decoration: none;
+  font: 12px Arial, Helvetica, sans-serif;
+}
+.form ul li input[type='button']:hover,
+.form ul li input[type='submit']:hover {
+  background: linear-gradient(to bottom, #2d77a2 5%, #337da8 100%);
+  background-color: #28739e;
 }
 </style>
