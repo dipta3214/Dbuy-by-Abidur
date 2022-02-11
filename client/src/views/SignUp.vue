@@ -1,7 +1,7 @@
 <template>
   <div class="body">
     <div class="signup">
-      <div class="title">Registration</div>
+      <h1>Registration</h1>
       <form @submit.prevent="submitForm" class="form">
         <ul>
           <li>
@@ -155,5 +155,11 @@ export default {
 .form ul li input[type='submit']:hover {
   background: linear-gradient(to bottom, #2d77a2 5%, #337da8 100%);
   background-color: #28739e;
+}
+
+@media (max-width: 450px) {
+  .form {
+    max-width: 250px;
+  }
 }
 </style>
