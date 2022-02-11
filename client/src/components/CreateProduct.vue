@@ -36,6 +36,7 @@
           name="description"
           @change="handleChange"
           placeholder="Description"
+          class="field-style field-full align-none"
         ></textarea>
       </li>
 
@@ -45,6 +46,7 @@
           name="location"
           @change="handleChange"
           placeholder="Location"
+          class="field-style field-full align-none"
         />
       </li>
 
@@ -54,6 +56,7 @@
           name="condition"
           @change="handleChange"
           placeholder="Condition"
+          class="field-style field-full align-none"
         />
       </li>
 
