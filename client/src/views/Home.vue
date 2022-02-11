@@ -13,7 +13,11 @@
       <button>Submit</button>
     </form>
 
-    <div :key="element.title" v-for="element in searchedProducts">
+    <div
+      :key="element.title"
+      v-for="element in searchedProducts"
+      @click="getDetails(element.id)"
+    >
       <div v-if="searched && searchedProducts">
         <h1>{{ element.title }}</h1>
         <img :src="element.image" alt="post" class="phone" />
@@ -26,7 +30,11 @@
         }}</span>
       </div>
     </div>
-    <div :key="element.brand" v-for="element in category">
+    <div
+      :key="element.brand"
+      v-for="element in category"
+      @click="getDetails(element.id)"
+    >
       <div v-if="catClick && category">
         <h1>{{ element.title }}</h1>
         <img :src="element.image" alt="post" class="phone" />
@@ -96,6 +104,9 @@ export default {
       this.category = res.data;
       this.searched = false;
       this.catClick = true;
+    },
+    getDetails(id) {
+      this.$router.push(`/products/${id}`);
     }
   }
 };

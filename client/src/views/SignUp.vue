@@ -8,6 +8,10 @@
       <input type="email" name="email" v-model="email" />
       <label for="password">Password: </label>
       <input type="password" name="password" v-model="password" />
+      <label for="phone">Phone: </label>
+      <input type="phone" name="phone" v-model="phone" />
+      <label for="insta">Instagram username: </label>
+      <input type="insta" name="insta" v-model="insta" />
       <button type="submit">Sign Up</button>
     </form>
   </div>
@@ -22,7 +26,9 @@ export default {
     return {
       username: ``,
       email: ``,
-      password: ``
+      password: ``,
+      phone: ``,
+      insta: ``
     };
   },
   methods: {

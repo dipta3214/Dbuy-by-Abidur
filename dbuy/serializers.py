@@ -39,5 +39,5 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = ('id', 'username', 'user_id', 'email',
+        fields = ('id', 'username', 'email',
                   'phone', 'instagram_username',)

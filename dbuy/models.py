@@ -32,7 +32,6 @@ class Comment(models.Model):
 
 class Contact(models.Model):
     username = models.CharField(max_length=100)
-    user_id = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=100, blank=True, null=True)
     instagram_username = models.CharField(
