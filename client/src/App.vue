@@ -27,6 +27,31 @@
       </div>
     </div>
     <router-view />
+    <footer>
+      <div class="footer">
+        <h3>Dbuy</h3>
+        <p>Sell it.</p>
+        <ul class="socials">
+          <li>
+            <a href=""
+              ><img src="https://i.imgur.com/WU2QIzp.png" alt="facebook"
+            /></a>
+            <a href=""
+              ><img src="https://i.imgur.com/xPR8CjH.png" alt="github"
+            /></a>
+            <a href=""
+              ><img src="https://i.imgur.com/t4xt0xL.png" alt="LinkdIn"
+            /></a>
+            <a href=""
+              ><img src="https://i.imgur.com/SLGbQRQ.png" alt="Instagram"
+            /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-ending">
+        <p>copyright &copy;2022 Dbuy. Designed by <span>Abidur </span></p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -67,19 +92,20 @@ export default {
         refresh: this.$store.state.refresh
       };
 
-      axios
-        .post('http://localhost:8000/api/v1/jwt/refresh/', accessData)
-        .then((response) => {
-          const access = response.data.access;
-          console.log(access);
+      if (this.$store.state.access !== '') {
+        axios
+          .post('http://localhost:8000/api/v1/jwt/refresh/', accessData)
+          .then((response) => {
+            const access = response.data.access;
+            console.log(response.data.access);
 
-          localStorage.setItem('access', access);
-          // localStorage.setItem('id', this.$store.state.id);
-          this.$store.commit('setAccess', access);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+            localStorage.setItem('access', access);
+            this.$store.commit('setAccess', access);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     },
     filter() {
       this.click = !this.click;
@@ -96,6 +122,57 @@ export default {
   text-align: center;
   color: #2c3e52;
   box-sizing: border-box;
+}
+
+footer {
+  background-color: #2c3e52;
+  color: white;
+  height: auto;
+  width: 100vw;
+  /* position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.footer h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 1rem;
+}
+
+.footer p {
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 14px;
+  font-size: 14px;
+}
+
+.socials {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+
+.socials li {
+  margin: 0 10px;
+}
+
+.socials a {
+  text-decoration: none;
+  color: #fff;
 }
 
 body {

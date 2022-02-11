@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <span :src="user_data" v-if="user_data"
+    <span v-if="user_data" :src="user_data"
       ><h1>Welcome {{ user_data }}! What are you looking for?</h1></span
     >
     <form @submit.prevent="searchProducts">
@@ -13,10 +13,21 @@
       <button>Submit</button>
     </form>
 
-    <div :key="element.id" v-for="element in searchedProducts">
-      <div v-if="searchedProducts">
+    <div :key="element.title" v-for="element in searchedProducts">
+      <div v-if="searched && searchedProducts">
         <h1>{{ element.title }}</h1>
-        <img :src="element.image" alt="post" />
+        <img :src="element.image" alt="post" class="phone" />
+      </div>
+    </div>
+    <div :key="element.id" v-for="element in products" class="categories">
+      <div v-if="products">
+        <h3 @click="getCategories(element.category)">{{ element.category }}</h3>
+      </div>
+    </div>
+    <div :key="element.brand" v-for="element in category">
+      <div v-if="catClick && category">
+        <h1>{{ element.title }}</h1>
+        <img :src="element.image" alt="post" class="phone" />
       </div>
     </div>
   </div>
@@ -30,32 +41,39 @@ export default {
     return {
       user_data: '',
       search: '-',
-      searchedProducts: ''
+      searchedProducts: '',
+      products: '',
+      category: '',
+      searched: false,
+      catClick: false
     };
   },
   mounted: async function () {
+    await this.getProducts();
     await this.searchProducts();
     this.getMe();
   },
   methods: {
     getMe() {
-      axios
-        .get('http://localhost:8000/api/v1/users/me')
-        .then((response) => {
-          const username = response.data.username;
-          const id = response.data.id;
+      if (this.$store.state.access !== '') {
+        axios
+          .get('http://localhost:8000/api/v1/users/me')
+          .then((response) => {
+            const username = response.data.username;
+            const id = response.data.id;
 
-          this.user_data = username;
+            this.user_data = username;
 
-          this.$store.commit('setUserId', id);
-          this.$store.commit('setUsername', username);
+            this.$store.commit('setUserId', id);
+            this.$store.commit('setUsername', username);
 
-          localStorage.setItem('id', id);
-          localStorage.setItem('username', username);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+            localStorage.setItem('id', id);
+            localStorage.setItem('username', username);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     },
     handleChange(e) {
       this[e.target.name] = e.target.value;
@@ -65,7 +83,35 @@ export default {
         `http://localhost:8000/products?search=${this.search}`
       );
       this.searchedProducts = res.data;
+      this.searched = true;
+      this.catClick = false;
+    },
+    async getProducts() {
+      const res = await axios.get(`http://localhost:8000/products`);
+      this.products = res.data;
+    },
+    async getCategories(value) {
+      const res = await axios.get(
+        `http://localhost:8000/products?category=${value}`
+      );
+      this.category = res.data;
+      this.searched = false;
+      this.catClick = true;
     }
   }
 };
 </script>
+
+<style>
+.categories div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (max-width: 400px) {
+  .phone {
+    width: 30vw;
+  }
+}
+</style>
