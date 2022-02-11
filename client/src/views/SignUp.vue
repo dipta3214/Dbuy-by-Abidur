@@ -38,6 +38,12 @@ export default {
         email: this.email,
         password: this.password
       });
+      axios.post(`${BASE_URL}/contacts/`, {
+        username: this.username,
+        email: this.email,
+        phone: this.phone,
+        instagram_username: this.insta
+      });
       this.$router.push('/login');
     }
   }
