@@ -11,18 +11,18 @@
         <span class="bar"></span>
       </a>
       <div class="navTwo" v-bind:class="{ active: click }">
-        <router-link to="/products"><a href="">Products</a></router-link>
-        <router-link to="/about"><a href="">About</a></router-link>
+        <router-link to="/products">Products</router-link>
+        <router-link to="/about">About</router-link>
         <router-link to="/signup" v-if="!$store.state.authenticated"
-          ><a href="">Sign Up</a></router-link
+          >Sign Up</router-link
         >
 
         <router-link to="/login" v-if="!$store.state.authenticated"
-          ><a href="">Login</a></router-link
+          >Login</router-link
         >
         <router-link to="/create">Create</router-link>
         <button @click="submitForm" v-if="$store.state.authenticated">
-          <a href="">Logout</a>
+          Logout
         </button>
       </div>
     </div>
