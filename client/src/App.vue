@@ -94,9 +94,9 @@ export default {
           .post('http://localhost:8000/api/v1/jwt/refresh/', {
             refresh: this.$store.state.refresh
           })
-          .then((response) => {
-            const access = response.data.access;
-            console.log(response.data.access);
+          .then((res) => {
+            const access = res.data.access;
+            console.log(res.data.access);
 
             localStorage.setItem('access', access);
             this.$store.commit('setAccess', access);
