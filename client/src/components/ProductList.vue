@@ -13,6 +13,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'ProductList',
   data() {
@@ -25,7 +26,7 @@ export default {
   },
   methods: {
     async getProducts() {
-      const res = await axios.get('http://localhost:8000/products/');
+      const res = await axios.get(`${BASE_URL}/products/`);
       this.products = res.data;
     },
     getDetails(id) {

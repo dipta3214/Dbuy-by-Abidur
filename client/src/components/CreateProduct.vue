@@ -35,6 +35,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'CreateProduct',
   data: () => ({
@@ -66,7 +67,7 @@ export default {
         price: this.price,
         user_id: this.$store.state.id
       };
-      await axios.post('http://localhost:8000/products/', formData);
+      await axios.post(`${BASE_URL}/products/`, formData);
       this.$router.push('/');
     }
   }

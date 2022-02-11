@@ -55,6 +55,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'UpdateProduct',
   data: () => ({
@@ -75,7 +76,7 @@ export default {
   methods: {
     async getDetails() {
       const res = await axios.get(
-        `http://localhost:8000/products/${this.$route.params.id}`
+        `${BASE_URL}/products/${this.$route.params.id}`
       );
       this.title = res.data.title;
       this.category = res.data.category;
@@ -105,7 +106,7 @@ export default {
         user_id: this.$store.state.id
       };
       await axios.put(
-        `http://localhost:8000/products/${this.$route.params.id}`,
+        `${BASE_URL}/products/${this.$route.params.id}`,
         formData
       );
       // this.$router.push('/');

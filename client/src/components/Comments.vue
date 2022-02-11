@@ -12,6 +12,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'Comment',
   data: () => ({
@@ -22,11 +23,11 @@ export default {
   },
   methods: {
     async getComments() {
-      const res = await axios.get(`http://localhost:8000/comments/`);
+      const res = await axios.get(`${BASE_URL}/comments/`);
       this.comments = res.data;
     },
     async deleteComment(element) {
-      await axios.delete(`http://localhost:8000/comments/${element}`);
+      await axios.delete(`${BASE_URL}/comments/${element}`);
     }
   }
 };

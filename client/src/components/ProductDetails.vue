@@ -23,6 +23,7 @@ import axios from 'axios';
 import UpdateProduct from './UpdateProduct.vue';
 import Comments from './Comments.vue';
 import CreateComment from './CreateComment.vue';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'ProductDetails',
   props: ['title'],
@@ -41,15 +42,13 @@ export default {
   methods: {
     async getDetails() {
       const res = await axios.get(
-        `http://localhost:8000/products/${this.$route.params.id}`
+        `${BASE_URL}/products/${this.$route.params.id}`
       );
       this.details = res.data;
       //   console.log(this.details.id);
     },
     async deleteProduct() {
-      await axios.delete(
-        `http://localhost:8000/products/${this.$route.params.id}`
-      );
+      await axios.delete(`${BASE_URL}/products/${this.$route.params.id}`);
       this.$router.push(`/`);
     },
     clickTrue() {

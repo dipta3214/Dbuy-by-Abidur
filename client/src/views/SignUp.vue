@@ -15,6 +15,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'SignUp',
   data() {
@@ -26,7 +27,7 @@ export default {
   },
   methods: {
     submitForm() {
-      axios.post('http://localhost:8000/api/v1/users/', {
+      axios.post(`${BASE_URL}/api/v1/users/`, {
         username: this.username,
         email: this.email,
         password: this.password

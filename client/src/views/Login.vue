@@ -13,6 +13,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'Login',
   data() {
@@ -28,7 +29,7 @@ export default {
       localStorage.removeItem('access');
 
       axios
-        .post('http://localhost:8000/api/v1/jwt/create/', {
+        .post(`${BASE_URL}/api/v1/jwt/create/`, {
           username: this.username,
           password: this.password
         })

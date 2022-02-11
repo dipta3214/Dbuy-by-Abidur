@@ -11,6 +11,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'CreateComment',
   data: () => ({
@@ -25,10 +26,10 @@ export default {
         username: this.$store.state.username,
         content: this.content,
         user_id: this.$store.state.id,
-        product: `http://localhost:8000/products/${this.$route.params.id}`,
+        product: `${BASE_URL}/products/${this.$route.params.id}`,
         product_id: this.$route.params.id
       };
-      await axios.post('http://localhost:8000/comments/', formData);
+      await axios.post(`${BASE_URL}/comments/`, formData);
     }
   }
 };

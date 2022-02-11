@@ -57,6 +57,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'App',
   data: () => ({
@@ -91,7 +92,7 @@ export default {
     getAccess() {
       if (this.$store.state.access !== '') {
         axios
-          .post('http://localhost:8000/api/v1/jwt/refresh/', {
+          .post(`${BASE_URL}/api/v1/jwt/refresh/`, {
             refresh: this.$store.state.refresh
           })
           .then((res) => {

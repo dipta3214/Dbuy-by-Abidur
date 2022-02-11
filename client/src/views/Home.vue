@@ -21,7 +21,9 @@
     </div>
     <div :key="element.id" v-for="element in products" class="categories">
       <div v-if="products">
-        <h3 @click="getCategories(element.category)">{{ element.category }}</h3>
+        <span @click="getCategories(element.category)">{{
+          element.category
+        }}</span>
       </div>
     </div>
     <div :key="element.brand" v-for="element in category">
@@ -35,6 +37,7 @@
 
 <script>
 import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'Home',
   data() {
@@ -58,21 +61,19 @@ export default {
       this[e.target.name] = e.target.value;
     },
     async searchProducts() {
-      const res = await axios.get(
-        `http://localhost:8000/products?search=${this.search}`
-      );
+      const res = await axios.get(`${BASE_URL}/products?search=${this.search}`);
       this.searchedProducts = res.data;
       this.searched = true;
       this.catClick = false;
     },
     async getProducts() {
-      const res = await axios.get(`http://localhost:8000/products`);
+      const res = await axios.get(`${BASE_URL}/products`);
       this.products = res.data;
     },
     getMe() {
       if (this.$store.state.access !== '') {
         axios
-          .get('http://localhost:8000/api/v1/users/me')
+          .get(`${BASE_URL}/api/v1/users/me`)
           .then((response) => {
             const username = response.data.username;
             const id = response.data.id;
@@ -91,9 +92,7 @@ export default {
       }
     },
     async getCategories(value) {
-      const res = await axios.get(
-        `http://localhost:8000/products?category=${value}`
-      );
+      const res = await axios.get(`${BASE_URL}/products?category=${value}`);
       this.category = res.data;
       this.searched = false;
       this.catClick = true;
@@ -108,6 +107,11 @@ export default {
   flex-direction: row;
   justify-content: center;
 }
+
+/* .categories div span {
+  display: flex;
+  justify-content: center;
+} */
 
 @media (max-width: 400px) {
   .phone {
