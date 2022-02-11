@@ -1,17 +1,27 @@
 <template>
   <div class="signup">
-    <h1>Sign Up</h1>
+    <div>Registration</div>
     <form @submit.prevent="submitForm">
-      <label for="username">Username: </label>
-      <input type="text" name="username" v-model="username" />
-      <label for="email">Email: </label>
-      <input type="email" name="email" v-model="email" />
-      <label for="password">Password: </label>
-      <input type="password" name="password" v-model="password" />
-      <label for="phone">Phone: </label>
-      <input type="phone" name="phone" v-model="phone" />
-      <label for="insta">Instagram username: </label>
-      <input type="insta" name="insta" v-model="insta" />
+      <div>
+        <label for="username">Username: </label>
+        <input type="text" name="username" v-model="username" />
+      </div>
+      <div>
+        <label for="email">Email: </label>
+        <input type="email" name="email" v-model="email" />
+      </div>
+      <div>
+        <label for="password">Password: </label>
+        <input type="password" name="password" v-model="password" />
+      </div>
+      <div>
+        <label for="phone">Phone: </label>
+        <input type="phone" name="phone" v-model="phone" />
+      </div>
+      <div>
+        <label for="insta">Instagram username: </label>
+        <input type="insta" name="insta" v-model="insta" />
+      </div>
       <button type="submit">Sign Up</button>
     </form>
   </div>
