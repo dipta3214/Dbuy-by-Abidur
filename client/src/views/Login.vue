@@ -22,20 +22,19 @@ export default {
     };
   },
   methods: {
+    // Followed this youtube tutorial for the JWT auth https://youtu.be/IsOtVyYbPto
     submitForm() {
       axios.defaults.headers.common['Authorization'] = '';
       localStorage.removeItem('access');
 
-      const formData = {
-        username: this.username,
-        password: this.password
-      };
-
       axios
-        .post('http://localhost:8000/api/v1/jwt/create/', formData)
-        .then((response) => {
-          const access = response.data.access;
-          const refresh = response.data.refresh;
+        .post('http://localhost:8000/api/v1/jwt/create/', {
+          username: this.username,
+          password: this.password
+        })
+        .then((res) => {
+          const access = res.data.access;
+          const refresh = res.data.refresh;
 
           this.$store.commit('setAccess', access);
           this.$store.commit('setRefresh', refresh);

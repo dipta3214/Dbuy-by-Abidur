@@ -26,21 +26,12 @@ export default {
   },
   methods: {
     submitForm() {
-      const formData = {
+      axios.post('http://localhost:8000/api/v1/users/', {
         username: this.username,
         email: this.email,
         password: this.password
-      };
-
-      axios
-        .post('http://localhost:8000/api/v1/users/', formData)
-        .then((response) => {
-          console.log(response);
-          this.$router.push('/');
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      });
+      this.$router.push('/login');
     }
   }
 };

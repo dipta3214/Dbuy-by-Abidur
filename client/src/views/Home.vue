@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <span v-if="user_data" :src="user_data"
+    <span v-if="user_data"
       ><h1>Welcome {{ user_data }}! What are you looking for?</h1></span
     >
     <form @submit.prevent="searchProducts">
@@ -54,6 +54,21 @@ export default {
     this.getMe();
   },
   methods: {
+    handleChange(e) {
+      this[e.target.name] = e.target.value;
+    },
+    async searchProducts() {
+      const res = await axios.get(
+        `http://localhost:8000/products?search=${this.search}`
+      );
+      this.searchedProducts = res.data;
+      this.searched = true;
+      this.catClick = false;
+    },
+    async getProducts() {
+      const res = await axios.get(`http://localhost:8000/products`);
+      this.products = res.data;
+    },
     getMe() {
       if (this.$store.state.access !== '') {
         axios
@@ -74,21 +89,6 @@ export default {
             console.log(error);
           });
       }
-    },
-    handleChange(e) {
-      this[e.target.name] = e.target.value;
-    },
-    async searchProducts() {
-      const res = await axios.get(
-        `http://localhost:8000/products?search=${this.search}`
-      );
-      this.searchedProducts = res.data;
-      this.searched = true;
-      this.catClick = false;
-    },
-    async getProducts() {
-      const res = await axios.get(`http://localhost:8000/products`);
-      this.products = res.data;
     },
     async getCategories(value) {
       const res = await axios.get(
