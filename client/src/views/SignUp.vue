@@ -92,6 +92,7 @@ export default {
 </script>
 
 <style scoped>
+/* Style design was inspired from sanwebe.com */
 .form {
   max-width: 450px;
   background: #fafafa;
@@ -118,10 +119,6 @@ export default {
   padding: 8px;
   outline: none;
   border: 1px solid #b0cfe0;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
 }
 .form ul li .field-style:focus {
   box-shadow: 0 0 5px #b0cfe0;
@@ -139,10 +136,7 @@ export default {
 .form ul li input.align-right {
   float: right;
 }
-.form ul li textarea {
-  width: 100%;
-  height: 100px;
-}
+
 .form ul li input[type='button'],
 .form ul li input[type='submit'] {
   -moz-box-shadow: inset 0px 1px 0px 0px #3985b1;
