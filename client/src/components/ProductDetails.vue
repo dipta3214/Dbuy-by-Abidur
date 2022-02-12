@@ -86,4 +86,19 @@ export default {
 .flex div {
   text-align: left;
 }
+
+@media (max-width: 450px) {
+  .grid img {
+    width: 300px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .flex {
+    margin: 10px 35px;
+  }
+}
 </style>
