@@ -53,7 +53,6 @@ export default {
   margin: 50px auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  border: 6px solid #305a72;
 }
 .form ul {
   padding: 0;
@@ -65,33 +64,15 @@ export default {
   margin-bottom: 10px;
   min-height: 35px;
 }
-.form ul li .field-style {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  padding: 8px;
-  outline: none;
-  border: 1px solid #b0cfe0;
-}
-.form ul li .field-style:focus {
-  box-shadow: 0 0 5px #b0cfe0;
-  border: 1px solid #b0cfe0;
-}
-.form ul li .field-split {
-  width: 49%;
-}
-.form ul li .field-full {
-  width: 100%;
-}
-.form ul li input.align-left {
-  float: left;
-}
-.form ul li input.align-right {
-  float: right;
+
+.form ul li h3,
+p {
+  display: flex;
 }
 
 .form ul li button,
 .form ul li button[type='submit'] {
+  float: left;
   -moz-box-shadow: inset 0px 1px 0px 0px #3985b1;
   -webkit-box-shadow: inset 0px 1px 0px 0px #3985b1;
   box-shadow: inset 0px 1px 0px 0px #4b0505;
