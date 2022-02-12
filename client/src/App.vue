@@ -104,7 +104,6 @@ export default {
           })
           .then((res) => {
             const access = res.data.access;
-            console.log(res.data.access);
 
             localStorage.setItem('access', access);
             this.$store.commit('setAccess', access);
