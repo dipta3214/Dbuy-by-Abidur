@@ -1,45 +1,54 @@
 <template>
   <div>
     <form @submit="handleSubmit">
-      <label for="title">Title: </label>
-      <input type="text" name="title" @change="handleChange" :value="title" />
+      <input
+        type="text"
+        name="title"
+        @change="handleChange"
+        :value="title"
+        placeholder="title"
+      />
 
-      <label for="category">Category: </label>
       <input
         type="text"
         name="category"
         @change="handleChange"
         :value="category"
+        placeholder="category"
       />
 
-      <label for="image">Image: </label>
-      <input type="text" name="image" @change="handleChange" :value="image" />
+      <input
+        type="text"
+        name="image"
+        @change="handleChange"
+        :value="image"
+        placeholder="Image(URL)"
+      />
 
-      <label for="description">Description: </label>
       <input
         type="text"
         name="description"
         @change="handleChange"
         :value="description"
+        placeholder="description"
       />
 
-      <label for="location">Location: </label>
       <input
         type="text"
         name="location"
         @change="handleChange"
         :value="location"
+        placeholder="location"
       />
 
-      <label for="condition">Condition: </label>
       <input
         type="text"
         name="condition"
         @change="handleChange"
         :value="condition"
+        placeholder="condition"
       />
 
-      <label for="brand">Brand: </label>
       <input type="text" name="brand" @change="handleChange" :value="brand" />
 
       <label for="color">Color: </label>

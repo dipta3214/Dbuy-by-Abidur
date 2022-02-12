@@ -3,7 +3,7 @@
     <div :key="element.id" v-for="element in comments">
       <div
         v-if="parseInt($route.params.id) === element.product_id"
-        class="form"
+        class="comment"
       >
         <ul>
           <li>
@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 /* Style design was inspired from sanwebe.com */
-.form {
+.comment {
   max-width: 750px;
   background: #fafafa;
   padding: 30px;
@@ -54,30 +54,30 @@ export default {
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
 }
-.form ul {
+.comment ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-.form ul li {
+.comment ul li {
   display: block;
   margin-bottom: 10px;
   min-height: 35px;
 }
 
-.form ul li h3,
+.comment ul li h3,
 p {
   display: flex;
 }
 
-.form ul li button,
-.form ul li button[type='submit'] {
+.comment ul li button,
+.comment ul li button[type='submit'] {
   float: left;
   -moz-box-shadow: inset 0px 1px 0px 0px #3985b1;
   -webkit-box-shadow: inset 0px 1px 0px 0px #3985b1;
   box-shadow: inset 0px 1px 0px 0px #4b0505;
   background-color: #c22a2a;
-  border: 1px solid #5e1010;
+  border: 1px solid #d38484;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -85,14 +85,14 @@ p {
   text-decoration: none;
   font: 12px Arial, Helvetica, sans-serif;
 }
-.form ul li button:hover,
-.form ul li button[type='submit']:hover {
+.comment ul li button:hover,
+.comment ul li button[type='submit']:hover {
   background: linear-gradient(to bottom, #761d1d 5%, #bb3d45 100%);
   background-color: #ac3e3e;
 }
 
 @media (max-width: 450px) {
-  .form {
+  .comment {
     max-width: 250px;
   }
 }

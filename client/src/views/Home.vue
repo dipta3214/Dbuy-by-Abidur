@@ -13,14 +13,16 @@
       <button>Submit</button>
     </form>
 
-    <div
-      :key="element.title"
-      v-for="element in searchedProducts"
-      @click="getDetails(element.id)"
-    >
-      <div v-if="searched && searchedProducts">
-        <h1>{{ element.title }}</h1>
-        <img :src="element.image" alt="post" class="phone" />
+    <div class="product">
+      <div
+        :key="element.title"
+        v-for="element in searchedProducts"
+        @click="getDetails(element.id)"
+      >
+        <div v-if="searched && searchedProducts">
+          <h1>{{ element.title }}</h1>
+          <img :src="element.image" alt="post" class="phone" />
+        </div>
       </div>
     </div>
     <div :key="element.id" v-for="element in products" class="categories">
@@ -34,6 +36,7 @@
       :key="element.brand"
       v-for="element in category"
       @click="getDetails(element.id)"
+      class="product"
     >
       <div v-if="catClick && category">
         <h1>{{ element.title }}</h1>
@@ -113,6 +116,14 @@ export default {
 </script>
 
 <style>
+.product img {
+  width: 300px;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 @media (min-width: 450px) {
   .search-home {
     display: none;

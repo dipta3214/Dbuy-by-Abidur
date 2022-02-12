@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="product">
     <div
       :key="element.id"
       v-for="element in products"
@@ -35,3 +35,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.product img {
+  width: 300px;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+</style>
