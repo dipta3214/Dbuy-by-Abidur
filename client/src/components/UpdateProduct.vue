@@ -1,8 +1,10 @@
 <template>
   <div>
     <form @submit="handleSubmit" class="form">
+      <h1>Update Your Product:</h1>
       <ul>
         <li>
+          <p>Title:</p>
           <input
             type="text"
             name="title"
@@ -13,6 +15,7 @@
           />
         </li>
         <li>
+          <p>Category:</p>
           <input
             type="text"
             name="category"
@@ -24,6 +27,7 @@
         </li>
 
         <li>
+          <p>Image(URL):</p>
           <input
             type="text"
             name="image"
@@ -35,6 +39,7 @@
         </li>
 
         <li>
+          <p>Description:</p>
           <input
             type="text"
             name="description"
@@ -46,6 +51,7 @@
         </li>
 
         <li>
+          <p>Location:</p>
           <input
             type="text"
             name="location"
@@ -57,6 +63,7 @@
         </li>
 
         <li>
+          <p>Condition:</p>
           <input
             type="text"
             name="condition"
@@ -68,6 +75,7 @@
         </li>
 
         <li>
+          <p>Brand:</p>
           <input
             type="text"
             name="brand"
@@ -79,6 +87,7 @@
         </li>
 
         <li>
+          <p>Color:</p>
           <input
             type="text"
             name="color"
@@ -90,6 +99,7 @@
         </li>
 
         <li>
+          <p>Price:</p>
           <input
             type="text"
             name="price"
@@ -189,6 +199,10 @@ export default {
   display: block;
   margin-bottom: 10px;
   min-height: 35px;
+}
+
+.form ul li p {
+  float: left;
 }
 .form ul li .field-style {
   box-sizing: border-box;
