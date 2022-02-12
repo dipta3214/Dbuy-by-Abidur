@@ -1,10 +1,18 @@
 <template>
   <div>
     <form @submit="handleSubmit">
-      <label for="content">Content: </label>
-      <input type="text" name="content" @change="handleChange" />
-
-      <button>Submit</button>
+      <ul>
+        <li>
+          <textarea
+            type="text"
+            name="content"
+            @change="handleChange"
+          ></textarea>
+        </li>
+        <li>
+          <button>Submit</button>
+        </li>
+      </ul>
     </form>
   </div>
 </template>

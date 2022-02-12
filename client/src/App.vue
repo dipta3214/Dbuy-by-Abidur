@@ -4,7 +4,7 @@
       <div class="navOne">
         <router-link to="/"><a href="">Home</a></router-link>
       </div>
-      <form class="search">
+      <form class="search" v-if="$route.path === '/'">
         <input
           type="text"
           placeholder="Enter what your looking for"
