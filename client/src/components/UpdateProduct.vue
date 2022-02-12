@@ -1,63 +1,104 @@
 <template>
   <div>
     <form @submit="handleSubmit">
-      <input
-        type="text"
-        name="title"
-        @change="handleChange"
-        :value="title"
-        placeholder="title"
-      />
+      <ul>
+        <li>
+          <input
+            type="text"
+            name="title"
+            @change="handleChange"
+            :value="title"
+            placeholder="Title"
+            class="field-style field-full align-none"
+          />
+        </li>
+        <li>
+          <input
+            type="text"
+            name="category"
+            @change="handleChange"
+            :value="category"
+            placeholder="Category"
+            class="field-style field-full align-none"
+          />
+        </li>
 
-      <input
-        type="text"
-        name="category"
-        @change="handleChange"
-        :value="category"
-        placeholder="category"
-      />
+        <li>
+          <input
+            type="text"
+            name="image"
+            @change="handleChange"
+            :value="image"
+            placeholder="Image(URL)"
+            class="field-style field-full align-none"
+          />
+        </li>
 
-      <input
-        type="text"
-        name="image"
-        @change="handleChange"
-        :value="image"
-        placeholder="Image(URL)"
-      />
+        <li>
+          <input
+            type="text"
+            name="description"
+            @change="handleChange"
+            :value="description"
+            placeholder="Description"
+            class="field-style field-full align-none"
+          />
+        </li>
 
-      <input
-        type="text"
-        name="description"
-        @change="handleChange"
-        :value="description"
-        placeholder="description"
-      />
+        <li>
+          <input
+            type="text"
+            name="location"
+            @change="handleChange"
+            :value="location"
+            placeholder="Location"
+          />
+        </li>
 
-      <input
-        type="text"
-        name="location"
-        @change="handleChange"
-        :value="location"
-        placeholder="location"
-      />
+        <li>
+          <input
+            type="text"
+            name="condition"
+            @change="handleChange"
+            :value="condition"
+            placeholder="Condition"
+          />
+        </li>
 
-      <input
-        type="text"
-        name="condition"
-        @change="handleChange"
-        :value="condition"
-        placeholder="condition"
-      />
+        <li>
+          <input
+            type="text"
+            name="brand"
+            @change="handleChange"
+            :value="brand"
+            placeholder="Brand"
+          />
+        </li>
 
-      <input type="text" name="brand" @change="handleChange" :value="brand" />
+        <li>
+          <input
+            type="text"
+            name="color"
+            @change="handleChange"
+            :value="color"
+            placeholder="Color"
+          />
+        </li>
 
-      <label for="color">Color: </label>
-      <input type="text" name="color" @change="handleChange" :value="color" />
+        <li>
+          <input
+            type="text"
+            name="price"
+            @change="handleChange"
+            :value="price"
+            placeholder="Price"
+          />
+        </li>
 
-      <label for="price">Price: </label>
-      <input type="text" name="price" @change="handleChange" :value="price" />
-
-      <button type="submit">Submit</button>
+        <li>
+          <input type="submit" value="Post" />
+        </li>
+      </ul>
     </form>
   </div>
 </template>
