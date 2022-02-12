@@ -3,7 +3,7 @@
     <span v-if="user_data"
       ><h1>Welcome {{ user_data }}! What are you looking for?</h1></span
     >
-    <form @submit.prevent="searchProducts">
+    <form @submit.prevent="searchProducts" class="search-home">
       <input
         type="text"
         placeholder="Enter what your looking for"
@@ -113,20 +113,9 @@ export default {
 </script>
 
 <style>
-.categories div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-/* .categories div span {
-  display: flex;
-  justify-content: center;
-} */
-
-@media (max-width: 400px) {
-  .phone {
-    width: 30vw;
+@media (min-width: 450px) {
+  .search-home {
+    display: none;
   }
 }
 </style>

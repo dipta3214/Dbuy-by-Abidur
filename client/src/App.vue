@@ -4,7 +4,14 @@
       <div class="navOne">
         <router-link to="/"><a href="">Home</a></router-link>
       </div>
-      <div></div>
+      <form class="search">
+        <input
+          type="text"
+          placeholder="Enter what your looking for"
+          name="search"
+        />
+        <button>Submit</button>
+      </form>
       <a @click="filter" class="toggle-button">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -33,16 +40,16 @@
         <p>Sell it.</p>
         <ul class="socials">
           <li>
-            <a href=""
+            <a href="https://www.facebook.com/abidurrahman.dipta"
               ><img src="https://i.imgur.com/WU2QIzp.png" alt="facebook"
             /></a>
-            <a href=""
+            <a href="https://github.com/dipta3214"
               ><img src="https://i.imgur.com/xPR8CjH.png" alt="github"
             /></a>
-            <a href=""
+            <a href="https://www.linkedin.com/in/abidurrahmandipta/"
               ><img src="https://i.imgur.com/t4xt0xL.png" alt="LinkdIn"
             /></a>
-            <a href=""
+            <a href="https://www.instagram.com/diiptoo/"
               ><img src="https://i.imgur.com/SLGbQRQ.png" alt="Instagram"
             /></a>
           </li>
@@ -216,6 +223,10 @@ body {
 }
 
 @media (max-width: 450px) {
+  .search {
+    display: none;
+  }
+
   .toggle-button {
     display: flex;
   }

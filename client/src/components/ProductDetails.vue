@@ -6,11 +6,20 @@
     <div v-if="!click">
       <button @click="clickTrue">Update</button>
       <button @click="deleteProduct">Delete</button>
-      <h1>hi</h1>
-      <div v-if="details">
-        <h1>{{ details.title }}</h1>
-        <img :src="details.image" alt="new" />
-        <h2>{{ details.brand }}</h2>
+      <div v-if="details" class="grid">
+        <div class="img"><img :src="details.image" alt="new" /></div>
+        <div class="flex">
+          <div>
+            <h1>{{ details.title }}</h1>
+            <h4>Price: {{ details.price }}</h4>
+            <h3>Brand: {{ details.brand }}</h3>
+            <h3>Category: {{ details.category }}</h3>
+            <h3>Location: {{ details.location }}</h3>
+            <h3>Color: {{ details.color }}</h3>
+            <h3>Condition: {{ details.condition }}</h3>
+            <p>{{ details.description }}</p>
+          </div>
+        </div>
       </div>
       <CreateComment />
       <Comments />
@@ -57,3 +66,24 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.grid {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: 1fr;
+}
+
+.grid img {
+  width: 400px;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex div {
+  text-align: left;
+}
+</style>
