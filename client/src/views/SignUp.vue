@@ -9,7 +9,7 @@
               type="text"
               name="username"
               v-model="username"
-              placeholder="username"
+              placeholder="Username"
               class="field-style field-split align-left"
             />
 
@@ -17,7 +17,7 @@
               type="email"
               name="email"
               v-model="email"
-              placeholder="email"
+              placeholder="Email"
               class="field-style field-split align-right"
             />
           </li>
@@ -27,7 +27,7 @@
               type="password"
               name="password"
               v-model="password"
-              placeholder="password"
+              placeholder="Password"
               class="field-style field-full align-none"
             />
           </li>

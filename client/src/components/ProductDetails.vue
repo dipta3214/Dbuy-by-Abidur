@@ -76,6 +76,7 @@ export default {
 
 .grid img {
   width: 400px;
+  margin-top: 10px;
 }
 
 .flex {

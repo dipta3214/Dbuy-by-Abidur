@@ -4,14 +4,15 @@
       <div class="navOne" @click="restart">
         <router-link to="/">Home</router-link>
       </div>
-      <form class="search-bar" v-if="$route.path === '/'">
+      <form @submit.prevent="searchProducts" class="search-bar">
         <input
           type="text"
           placeholder="Enter what your looking for"
           name="search"
+          @change="handleChange"
           class="search"
         />
-        <button class="search-submit">Search</button>
+        <button class="search-submit">Submit</button>
       </form>
       <a @click="filter" class="toggle-button">
         <span class="bar"></span>
@@ -38,7 +39,21 @@
         </button>
       </div>
     </div>
+
     <router-view />
+    <div></div>
+    <div class="product">
+      <div
+        :key="element.title"
+        v-for="element in searchedProducts"
+        @click="getDetails(element.id)"
+      >
+        <div v-if="searched && searchedProducts && $route.path === '/'">
+          <h1>{{ element.title }}</h1>
+          <img :src="element.image" alt="post" class="phone" />
+        </div>
+      </div>
+    </div>
     <footer>
       <div class="footer">
         <h3>Dbuy</h3>
@@ -73,7 +88,9 @@ const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'App',
   data: () => ({
-    click: false
+    click: false,
+    search: '-',
+    searchedProducts: ''
   }),
   beforeCreate() {
     this.$store.commit('initializeStore');
@@ -86,12 +103,16 @@ export default {
       axios.defaults.headers.common['Authorization'] = '';
     }
   },
-  mounted() {
+  mounted: async function () {
+    await this.searchProducts();
     setInterval(() => {
       this.getAccess();
     }, 60000);
   },
   methods: {
+    handleChange(e) {
+      this[e.target.name] = e.target.value;
+    },
     submitForm(e) {
       e.preventDefault();
       this.$store.commit('removeToken');
@@ -108,6 +129,7 @@ export default {
             refresh: this.$store.state.refresh
           })
           .then((res) => {
+            console.log(res.data.access);
             const access = res.data.access;
 
             localStorage.setItem('access', access);
@@ -123,6 +145,19 @@ export default {
     },
     restart() {
       window.location.reload();
+    },
+
+    async searchProducts() {
+      if (this.$route.path !== '/') {
+        this.$router.push('/');
+      }
+      const res = await axios.get(`${BASE_URL}/products?search=${this.search}`);
+      this.searchedProducts = res.data;
+      this.searched = true;
+      this.catClick = true;
+    },
+    getDetails(id) {
+      this.$router.push(`/products/${id}`);
     }
   }
 };
