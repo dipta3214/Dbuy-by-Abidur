@@ -1,16 +1,17 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div class="navOne">
-        <router-link to="/"><a href="">Home</a></router-link>
+      <div class="navOne" @click="restart">
+        <router-link to="/">Home</router-link>
       </div>
-      <form class="search" v-if="$route.path === '/'">
+      <form class="search-bar" v-if="$route.path === '/'">
         <input
           type="text"
           placeholder="Enter what your looking for"
           name="search"
+          class="search"
         />
-        <button>Submit</button>
+        <button>Search</button>
       </form>
       <a @click="filter" class="toggle-button">
         <span class="bar"></span>
@@ -28,7 +29,11 @@
           >Login</router-link
         >
         <router-link to="/create">Create</router-link>
-        <button @click="submitForm" v-if="$store.state.authenticated">
+        <button
+          @click="submitForm"
+          v-if="$store.state.authenticated"
+          class="delete"
+        >
           Logout
         </button>
       </div>
@@ -115,6 +120,9 @@ export default {
     },
     filter() {
       this.click = !this.click;
+    },
+    restart() {
+      window.location.reload();
     }
   }
 };
@@ -148,6 +156,10 @@ footer {
   flex-direction: column;
   text-align: center;
   margin-bottom: 0;
+}
+
+.search {
+  width: 600px;
 }
 
 .footer h3 {
@@ -221,8 +233,44 @@ body {
   border-radius: 10px;
 }
 
-@media (max-width: 450px) {
+.delete {
+  -moz-box-shadow: inset 0px 1px 0px 0px #b13939;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #b13939;
+  box-shadow: inset 0px 1px 0px 0px #a02222;
+  background-color: #c12b2b;
+  border: 1px solid #430909;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 8px 18px;
+  text-decoration: none;
+  font: 12px Arial, Helvetica, sans-serif;
+}
+.delete:hover {
+  background: linear-gradient(to bottom, #c92d2d 5%, #8a1a1a 100%);
+  background-color: #bd3636;
+}
+
+@media (max-width: 1105px) {
   .search {
+    width: 300px;
+  }
+}
+
+@media (max-width: 810px) {
+  .search {
+    width: 200px;
+  }
+}
+
+@media (max-width: 660px) {
+  .search {
+    width: 100px;
+  }
+}
+
+@media (max-width: 450px) {
+  .search-bar {
     display: none;
   }
 

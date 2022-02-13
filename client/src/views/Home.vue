@@ -9,6 +9,7 @@
         placeholder="Enter what your looking for"
         name="search"
         @change="handleChange"
+        class="search-bar-home"
       />
       <button>Submit</button>
     </form>
@@ -124,9 +125,19 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.search-bar-home {
+  width: 250px;
+}
 @media (min-width: 450px) {
   .search-home {
     display: none;
+  }
+}
+
+@media (max-width: 325px) {
+  .search-bar-home {
+    width: 180px;
   }
 }
 </style>
