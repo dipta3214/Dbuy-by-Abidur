@@ -1,8 +1,8 @@
 <template>
   <div class="body">
     <div class="signup">
-      <h1>Registration</h1>
       <form @submit.prevent="submitForm" class="form">
+        <h1>Registration</h1>
         <ul>
           <li>
             <input
@@ -53,6 +53,7 @@
             <input type="submit" value="Sign up" />
           </li>
         </ul>
+        <p>Already have an account? <a href="/login">Log in</a></p>
       </form>
     </div>
   </div>
