@@ -103,11 +103,10 @@ export default {
       axios.defaults.headers.common['Authorization'] = '';
     }
   },
-  mounted: async function () {
-    await this.searchProducts();
+  mounted: function () {
     setInterval(() => {
       this.getAccess();
-    }, 60000);
+    }, 59000);
   },
   methods: {
     handleChange(e) {
@@ -148,7 +147,7 @@ export default {
     },
 
     async searchProducts() {
-      if (this.$route.path !== '/') {
+      if (this.$route !== '/') {
         this.$router.push('/');
       }
       const res = await axios.get(`${BASE_URL}/products?search=${this.search}`);
