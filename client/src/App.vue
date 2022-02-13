@@ -122,22 +122,22 @@ export default {
     },
     // Followed this youtube tutorial for the JWT auth https://youtu.be/IsOtVyYbPto
     getAccess() {
-      if (this.$store.state.access !== '') {
-        axios
-          .post(`${BASE_URL}/api/v1/jwt/refresh/`, {
-            refresh: this.$store.state.refresh
-          })
-          .then((res) => {
-            console.log(res.data.access);
-            const access = res.data.access;
-
-            localStorage.setItem('access', access);
-            this.$store.commit('setAccess', access);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
+      axios
+        .post(`${BASE_URL}/api/v1/jwt/refresh/`, {
+          refresh: this.$store.state.refresh
+        })
+        .then((res) => {
+          console.log(res.data.access);
+          const access = res.data.access;
+          // const refresh = res.data.refresh;
+          localStorage.setItem('access', access);
+          // localStorage.setItem('refresh', refresh);
+          this.$store.commit('setAccess', access);
+          // this.$store.commit('setRefresh', refresh);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     filter() {
       this.click = !this.click;
@@ -147,7 +147,7 @@ export default {
     },
 
     async searchProducts() {
-      if (this.$route !== '/') {
+      if (this.$route.path !== '/') {
         this.$router.push('/');
       }
       const res = await axios.get(`${BASE_URL}/products?search=${this.search}`);
