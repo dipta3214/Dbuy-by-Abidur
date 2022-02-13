@@ -1,7 +1,7 @@
 <template>
   <div class="login">
-    <h1>Log in</h1>
     <form @submit.prevent="submitForm" class="form">
+      <h1>Log in</h1>
       <ul>
         <li>
           <input
@@ -26,6 +26,7 @@
           <input type="submit" value="Login" />
         </li>
       </ul>
+      <p>Don't have an account? <a href="/signup">Sign Up</a></p>
     </form>
   </div>
 </template>

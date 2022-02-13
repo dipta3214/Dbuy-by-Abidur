@@ -272,7 +272,7 @@ body {
   background-color: #28739e;
 }
 
-@media (max-width: 1105px) {
+@media (max-width: 1165px) {
   .search {
     width: 300px;
   }
