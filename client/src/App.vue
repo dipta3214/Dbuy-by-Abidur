@@ -11,7 +11,7 @@
           name="search"
           class="search"
         />
-        <button>Search</button>
+        <button class="search-submit">Search</button>
       </form>
       <a @click="filter" class="toggle-button">
         <span class="bar"></span>
@@ -160,6 +160,7 @@ footer {
 
 .search {
   width: 600px;
+  padding: 6px 16px;
 }
 
 .footer h3 {
@@ -238,7 +239,7 @@ body {
   -webkit-box-shadow: inset 0px 1px 0px 0px #b13939;
   box-shadow: inset 0px 1px 0px 0px #a02222;
   background-color: #c12b2b;
-  border: 1px solid #430909;
+  border: 1px solid #5e0d0d;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -249,6 +250,26 @@ body {
 .delete:hover {
   background: linear-gradient(to bottom, #c92d2d 5%, #8a1a1a 100%);
   background-color: #bd3636;
+}
+
+.search-submit {
+  margin: 0 5px;
+  -moz-box-shadow: inset 0px 1px 0px 0px #3985b1;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #3985b1;
+  box-shadow: inset 0px 1px 0px 0px #3985b1;
+  background-color: #216288;
+  border: 1px solid #17445e;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 8px 18px;
+  text-decoration: none;
+  font: 12px Arial, Helvetica, sans-serif;
+  border-radius: 3px;
+}
+.search-submit:hover {
+  background: linear-gradient(to bottom, #2d77a2 5%, #337da8 100%);
+  background-color: #28739e;
 }
 
 @media (max-width: 1105px) {

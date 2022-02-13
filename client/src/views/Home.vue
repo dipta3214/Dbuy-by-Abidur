@@ -11,7 +11,7 @@
         @change="handleChange"
         class="search-bar-home"
       />
-      <button>Submit</button>
+      <button class="search-submit">Submit</button>
     </form>
 
     <div class="product">
@@ -128,7 +128,30 @@ export default {
 
 .search-bar-home {
   width: 250px;
+  padding: 6px 16px;
+  /* border-radius: 3px; */
 }
+
+.search-submit {
+  margin: 0 5px;
+  -moz-box-shadow: inset 0px 1px 0px 0px #3985b1;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #3985b1;
+  box-shadow: inset 0px 1px 0px 0px #3985b1;
+  background-color: #216288;
+  border: 1px solid #17445e;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 8px 18px;
+  text-decoration: none;
+  font: 12px Arial, Helvetica, sans-serif;
+  border-radius: 3px;
+}
+.search-submit:hover {
+  background: linear-gradient(to bottom, #2d77a2 5%, #337da8 100%);
+  background-color: #28739e;
+}
+
 @media (min-width: 450px) {
   .search-home {
     display: none;
