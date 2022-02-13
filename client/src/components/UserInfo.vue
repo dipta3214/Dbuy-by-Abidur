@@ -1,16 +1,22 @@
 <template>
-  <div class="vue-modal">
-    <div class="vue-modal-inner">
-      <div class="vue-modal-content">
-        <slot />
-        <button type="button" @click="$emit('close')">Close</button>
-      </div>
-    </div>
-  </div>
+  <div></div>
 </template>
 
 <script>
+import axios from 'axios';
+const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
-  name: 'Userinfo'
+  name: 'Userinfo',
+  data: () => ({
+    seller: ''
+  }),
+  mounted: async function () {
+    await this.getInfo();
+  },
+  methods: {
+    async getInfo() {
+      const res = await axios.get(`${BASE_URL}/contacts/`);
+    }
+  }
 };
 </script>

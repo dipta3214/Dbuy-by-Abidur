@@ -10,7 +10,7 @@
       <div class="buttons">
         <div>
           <button class="delete_button" @click="confirmWindow">
-            User contact info
+            Seller Contact
           </button>
           <button @click="clickTrue">
             <img src="https://i.imgur.com/A4CD9e2.png" alt="update" />

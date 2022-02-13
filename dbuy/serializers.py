@@ -16,7 +16,7 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'product_url', 'title', 'category', 'image', 'description',
-                  'location', 'condition', 'brand', 'color', 'price', 'user_id',)
+                  'location', 'condition', 'brand', 'color', 'price', 'user_id', 'username', )
 
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
