@@ -4,8 +4,17 @@
       <UpdateProduct />
     </div>
     <div v-if="!click">
-      <button @click="clickTrue">Update</button>
-      <button @click="deleteProduct">Delete</button>
+      <div class="buttons">
+        <div>
+          <button>Uer contact info</button>
+          <button @click="clickTrue">
+            <img src="https://i.imgur.com/A4CD9e2.png" alt="update" />
+          </button>
+          <button @click="deleteProduct">
+            <img src="https://i.imgur.com/RaQAlDa.png" alt="delete" />
+          </button>
+        </div>
+      </div>
       <div v-if="details" class="grid">
         <div class="img"><img :src="details.image" alt="new" /></div>
         <div class="flex">
@@ -88,6 +97,20 @@ export default {
   text-align: left;
 }
 
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttons div button {
+  padding: 6px;
+  margin: 12px 8px;
+}
+
+.buttons div button img {
+  width: 25px;
+}
+
 @media (max-width: 450px) {
   .grid img {
     width: 300px;
@@ -100,6 +123,14 @@ export default {
 
   .flex {
     margin: 10px 35px;
+  }
+
+  .buttons {
+    margin-bottom: 20px;
+  }
+
+  .buttons div button img {
+    width: 20px;
   }
 }
 </style>

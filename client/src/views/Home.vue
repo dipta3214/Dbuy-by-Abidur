@@ -158,7 +158,7 @@ export default {
   }
 }
 
-@media (max-width: 325px) {
+@media (max-width: 390px) {
   .search-bar-home {
     width: 180px;
   }

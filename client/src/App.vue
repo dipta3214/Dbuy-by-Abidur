@@ -4,6 +4,20 @@
       <div class="navOne" @click="restart">
         <router-link to="/">Home</router-link>
       </div>
+      <div>
+        <select v-model="categories">
+          <option>Categories</option>
+          <option
+            :key="element.id"
+            v-for="element in productsApp"
+            :value="element.category"
+          >
+            <button @click="getCategories">
+              {{ element.category }}
+            </button>
+          </option>
+        </select>
+      </div>
       <form @submit.prevent="searchProducts" class="search-bar">
         <input
           type="text"
@@ -90,7 +104,10 @@ export default {
   data: () => ({
     click: false,
     search: '-',
-    searchedProducts: ''
+    searchedProducts: '',
+    productsApp: '',
+    categories: '',
+    categoriesProducts: null
   }),
   beforeCreate() {
     this.$store.commit('initializeStore');
@@ -103,7 +120,9 @@ export default {
       axios.defaults.headers.common['Authorization'] = '';
     }
   },
-  mounted: function () {
+  mounted: async function () {
+    await this.getProducts();
+    await this.getCategories();
     setInterval(() => {
       this.getAccess();
     }, 59000);
@@ -153,10 +172,22 @@ export default {
       const res = await axios.get(`${BASE_URL}/products?search=${this.search}`);
       this.searchedProducts = res.data;
       this.searched = true;
-      this.catClick = true;
+      this.catClick = false;
     },
     getDetails(id) {
       this.$router.push(`/products/${id}`);
+    },
+    async getProducts() {
+      const res = await axios.get(`${BASE_URL}/products`);
+      this.productsApp = res.data;
+    },
+    async getCategories() {
+      const res = await axios.get(
+        `${BASE_URL}/products?category=${this.categories}`
+      );
+      this.categoriesProducts = res.data;
+      this.searched = false;
+      this.catClick = true;
     }
   }
 };

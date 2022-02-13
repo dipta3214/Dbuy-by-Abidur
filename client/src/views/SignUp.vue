@@ -31,7 +31,7 @@
               class="field-style field-full align-none"
             />
           </li>
-
+          <li><p>Contact Information:</p></li>
           <li>
             <input
               type="phone"
