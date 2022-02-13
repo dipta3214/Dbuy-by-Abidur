@@ -1,12 +1,17 @@
 <template>
   <div>
-    <div v-if="click">
+    <div
+      v-if="click"
+      v-bind:class="{ active: !confirm, 'non-opacity': confirm }"
+    >
       <UpdateProduct />
     </div>
     <div v-if="!click">
       <div class="buttons">
         <div>
-          <button>Uer contact info</button>
+          <button class="delete_button" @click="confirmWindow">
+            User contact info
+          </button>
           <button @click="clickTrue">
             <img src="https://i.imgur.com/A4CD9e2.png" alt="update" />
           </button>
@@ -33,6 +38,17 @@
       <CreateComment />
       <Comments />
     </div>
+    <section v-if="confirm">
+      <div class="confirm">
+        <div class="confirm__window">
+          <div class="confirm__titlebar">
+            <span class="confirm__title">User Information</span>
+            <button @click="unConfirm()" class="confirm__close">X</button>
+          </div>
+          <div class="confirm__content">This Post will be lost forever</div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -41,6 +57,7 @@ import axios from 'axios';
 import UpdateProduct from './UpdateProduct.vue';
 import Comments from './Comments.vue';
 import CreateComment from './CreateComment.vue';
+// import UserInfo from './UserInfo.vue';
 const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'ProductDetails',
@@ -49,10 +66,14 @@ export default {
     UpdateProduct,
     Comments,
     CreateComment
+    // UserInfo
   },
   data: () => ({
     details: null,
-    click: false
+    click: false,
+    confirm: false,
+
+    edited: false
   }),
   mounted: async function () {
     await this.getDetails();
@@ -71,6 +92,17 @@ export default {
     },
     clickTrue() {
       this.click = true;
+    },
+
+    // For the modal
+    confirmWindow() {
+      this.confirm = true;
+    },
+    unConfirm() {
+      this.confirm = false;
+    },
+    startEdit() {
+      this.edited = true;
     }
   }
 };
@@ -110,6 +142,98 @@ export default {
 .buttons div button img {
   width: 25px;
 }
+
+/* Modal */
+
+.non-opacity {
+  opacity: 0.1;
+}
+
+.confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  box-sizing: border-box;
+  animation-name: confirm---open;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm__window {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  font-size: 14px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  opacity: 0;
+  transform: scale(0.75);
+  animation-name: confirm__window---open;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.2s;
+}
+
+.confirm__titlebar,
+.confirm__content {
+  padding: 1.25em;
+  font-size: larger;
+  font-family: bolder;
+}
+
+.confirm__titlebar {
+  background-color: #216288;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.confirm__title {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.confirm__close {
+  background: none;
+  outline: none;
+  border: none;
+  transform: scale(2.5);
+  color: #ffffff;
+  transition: color 0.2s;
+}
+
+.confirm__content {
+  line-height: 2.8em;
+}
+
+@keyframes confirm---open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes confirm__window---open {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Modal Ending */
 
 @media (max-width: 450px) {
   .grid img {
