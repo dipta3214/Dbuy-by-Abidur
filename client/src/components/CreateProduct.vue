@@ -132,7 +132,8 @@ export default {
         brand: this.brand,
         color: this.color,
         price: this.price,
-        user_id: this.$store.state.id
+        user_id: this.$store.state.id,
+        username: this.$store.state.username
       };
       await axios.post(`${BASE_URL}/products/`, formData);
       this.$router.push('/');

@@ -158,6 +158,17 @@ export default {
   }
 }
 
+@media (max-width: 450px) {
+  .product div div img {
+    width: 150px;
+  }
+
+  .product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 390px) {
   .search-bar-home {
     width: 180px;

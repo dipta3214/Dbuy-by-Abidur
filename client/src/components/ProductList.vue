@@ -45,4 +45,15 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+@media (max-width: 450px) {
+  .product img {
+    width: 150px;
+  }
+
+  .product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
 </style>

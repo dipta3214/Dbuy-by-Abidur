@@ -45,7 +45,9 @@
             <span class="confirm__title">User Information</span>
             <button @click="unConfirm()" class="confirm__close">X</button>
           </div>
-          <div class="confirm__content">This Post will be lost forever</div>
+          <div class="confirm__content">
+            <UserInfo v-bind:username="details.username" />
+          </div>
         </div>
       </div>
     </section>
@@ -57,7 +59,7 @@ import axios from 'axios';
 import UpdateProduct from './UpdateProduct.vue';
 import Comments from './Comments.vue';
 import CreateComment from './CreateComment.vue';
-// import UserInfo from './UserInfo.vue';
+import UserInfo from './UserInfo.vue';
 const BASE_URL = process.env.VUE_APP_API_URL;
 export default {
   name: 'ProductDetails',
@@ -65,8 +67,8 @@ export default {
   components: {
     UpdateProduct,
     Comments,
-    CreateComment
-    // UserInfo
+    CreateComment,
+    UserInfo
   },
   data: () => ({
     details: null,

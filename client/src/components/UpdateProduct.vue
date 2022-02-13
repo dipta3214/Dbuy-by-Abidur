@@ -167,8 +167,7 @@ export default {
         condition: this.condition,
         brand: this.brand,
         color: this.color,
-        price: this.price,
-        user_id: this.$store.state.id
+        price: this.price
       };
       await axios.put(
         `${BASE_URL}/products/${this.$route.params.id}`,
