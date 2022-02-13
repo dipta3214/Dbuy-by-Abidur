@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Add a new product</h1>
     <form @submit.prevent="handleSubmit" class="form">
+      <h1>Add a new product</h1>
       <ul>
         <li>
           <input
