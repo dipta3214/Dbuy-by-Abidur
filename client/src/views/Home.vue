@@ -175,7 +175,7 @@ section {
   display: flex;
   align-items: center;
   min-height: 100vh;
-  background: url(https://i.imgur.com/JEVOSpz.jpg) no-repeat;
+  background: url(https://i.imgur.com/vuZc0rL.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -217,7 +217,7 @@ section {
 }
 
 .btn:hover {
-  background: #28739e;
+  background: #2c3e52;
   color: white;
 }
 
