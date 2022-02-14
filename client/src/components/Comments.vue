@@ -43,7 +43,11 @@ export default {
       this.comments = res.data;
     },
     async deleteComment(element) {
-      await axios.delete(`${BASE_URL}/comments/${element}`);
+      confirm('Do you wanna delete the comment?');
+      if (confirm) {
+        await axios.delete(`${BASE_URL}/comments/${element}`);
+        window.location.reload();
+      }
     }
   }
 };

@@ -47,6 +47,7 @@
         <router-link to="/create" v-if="$store.state.authenticated"
           >Add a product</router-link
         >
+        <span class="user">{{ $store.state.username }}</span>
         <button
           @click="submitForm"
           v-if="$store.state.authenticated"
@@ -220,6 +221,10 @@ footer {
   right: 0; */
 }
 
+.user {
+  margin-right: 8px;
+}
+
 .footer {
   display: flex;
   align-items: center;
@@ -364,6 +369,10 @@ body {
 @media (max-width: 450px) {
   .search-bar {
     display: none;
+  }
+
+  .user {
+    margin-bottom: 10px;
   }
 
   .toggle-button {
