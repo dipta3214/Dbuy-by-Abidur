@@ -4,6 +4,7 @@
       :key="element.id"
       v-for="element in products"
       @click="getDetails(element.id)"
+      class="border"
     >
       <h2>{{ element.title }}</h2>
       <img :src="element.image" />
@@ -44,6 +45,10 @@ export default {
 .product {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+.border {
+  border: 1px solid black;
 }
 
 @media (max-width: 450px) {

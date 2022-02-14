@@ -5,6 +5,9 @@
 - Django REST Framework
 - Postgres
 
+## Deployed Link
+- [Dbuy](https://dbuy.netlify.app/)
+
 ## Trello Board
 - [Trello](https://trello.com/b/PWXjAouB/dbuy)
 
@@ -13,3 +16,7 @@
 
 ## Hierarchy Diagram
 ![](https://i.imgur.com/Ob4zrMA.jpg)
+
+
+## Social Media Links
+- [LinkedIn](https://www.linkedin.com/in/abidurrahmandipta/)
