@@ -13,7 +13,12 @@
             <p>{{ element.content }}</p>
           </li>
           <li>
-            <button @click="deleteComment(element.id)">Delete</button>
+            <button
+              @click="deleteComment(element.id)"
+              v-if="element.user_id === $store.state.id"
+            >
+              Delete
+            </button>
           </li>
         </ul>
       </div>

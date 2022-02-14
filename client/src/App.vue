@@ -43,7 +43,9 @@
         <router-link to="/login" v-if="!$store.state.authenticated"
           >Login</router-link
         >
-        <router-link to="/create">Create</router-link>
+        <router-link to="/create" v-if="$store.state.authenticated"
+          >Add a product</router-link
+        >
         <button
           @click="submitForm"
           v-if="$store.state.authenticated"

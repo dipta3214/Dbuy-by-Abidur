@@ -12,10 +12,16 @@
           <button class="delete_button" @click="confirmWindow">
             <img src="https://i.imgur.com/EhdZiOX.png" alt="user" />
           </button>
-          <button @click="clickTrue">
+          <button
+            @click="clickTrue"
+            v-if="details && details.user_id === $store.state.id"
+          >
             <img src="https://i.imgur.com/A4CD9e2.png" alt="update" />
           </button>
-          <button @click="deleteProduct">
+          <button
+            @click="deleteProduct"
+            v-if="details && details.user_id === $store.state.id"
+          >
             <img src="https://i.imgur.com/RaQAlDa.png" alt="delete" />
           </button>
         </div>
@@ -25,7 +31,7 @@
         <div class="flex">
           <div>
             <h1>{{ details.title }}</h1>
-            <h4>Price: {{ details.price }}</h4>
+            <h4>Price: ${{ details.price }}</h4>
             <h3>Brand: {{ details.brand }}</h3>
             <h3>Category: {{ details.category }}</h3>
             <h3>Location: {{ details.location }}</h3>
