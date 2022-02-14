@@ -153,13 +153,11 @@ export default {
           refresh: this.$store.state.refresh
         })
         .then((res) => {
-          console.log(res.data.access);
           const access = res.data.access;
-          // const refresh = res.data.refresh;
+
           localStorage.setItem('access', access);
-          // localStorage.setItem('refresh', refresh);
+
           this.$store.commit('setAccess', access);
-          // this.$store.commit('setRefresh', refresh);
         })
         .catch((error) => {
           console.log(error);
