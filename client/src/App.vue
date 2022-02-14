@@ -222,7 +222,7 @@ footer {
 }
 
 .user {
-  margin-right: 8px;
+  margin-right: 10px;
 }
 
 .footer {

@@ -14,13 +14,13 @@
           </button>
           <button
             @click="clickTrue"
-            v-if="details && details.user_id === $store.state.id"
+            v-if="details && details.user_id == $store.state.id"
           >
             <img src="https://i.imgur.com/A4CD9e2.png" alt="update" />
           </button>
           <button
             @click="deleteProduct"
-            v-if="details && details.user_id === $store.state.id"
+            v-if="details && details.user_id == $store.state.id"
           >
             <img src="https://i.imgur.com/RaQAlDa.png" alt="delete" />
           </button>
@@ -95,8 +95,11 @@ export default {
       //   console.log(this.details.id);
     },
     async deleteProduct() {
-      await axios.delete(`${BASE_URL}/products/${this.$route.params.id}`);
-      this.$router.push(`/`);
+      confirm('Are you sure you want to delete this product?');
+      if (confirm) {
+        await axios.delete(`${BASE_URL}/products/${this.$route.params.id}`);
+        this.$router.push(`/`);
+      }
     },
     clickTrue() {
       this.click = true;
