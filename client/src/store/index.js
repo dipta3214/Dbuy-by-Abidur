@@ -9,7 +9,8 @@ export default new Vuex.Store({
     refresh: '',
     authenticated: false,
     id: '',
-    username: ''
+    username: '',
+    main: true
   },
   mutations: {
     initializeStore(state){
@@ -37,6 +38,9 @@ export default new Vuex.Store({
     },
     setUsername(state, username){
       state.username = username
+    },
+    setMain(state, main){
+      state.main = main
     }
   },
   actions: {

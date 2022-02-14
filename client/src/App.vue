@@ -107,7 +107,8 @@ export default {
     searchedProducts: '',
     productsApp: '',
     categories: '',
-    categoriesProducts: null
+    categoriesProducts: null,
+    main: true
   }),
   beforeCreate() {
     this.$store.commit('initializeStore');
@@ -173,6 +174,7 @@ export default {
       this.searchedProducts = res.data;
       this.searched = true;
       this.catClick = false;
+      this.$store.state.main = false;
     },
     getDetails(id) {
       this.$router.push(`/products/${id}`);

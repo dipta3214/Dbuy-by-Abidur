@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <span v-if="user_data"
+    <!-- <span v-if="user_data"
       ><h1>Welcome {{ user_data }}! What are you looking for?</h1></span
-    >
+    > -->
     <form @submit.prevent="searchProducts" class="search-home">
       <input
         type="text"
@@ -14,7 +14,7 @@
       <button class="search-submit">Submit</button>
     </form>
 
-    <div class="product">
+    <!-- <div class="product">
       <div
         :key="element.title"
         v-for="element in searchedProducts"
@@ -32,7 +32,7 @@
           element.category
         }}</span>
       </div>
-    </div>
+    </div> -->
     <div
       :key="element.brand"
       v-for="element in category"
@@ -44,6 +44,18 @@
         <img :src="element.image" alt="post" class="phone" />
       </div>
     </div>
+
+    <section class="main" id="main" v-if="$store.state.main">
+      <div class="content">
+        <h3>Dbuy</h3>
+        <span>Sell it</span>
+        <p>
+          This webiste was created using VueJS, Django REST Framework and
+          Postgres.
+        </p>
+        <a href="/products" class="btn">Browse products</a>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -65,7 +77,6 @@ export default {
   },
   mounted: async function () {
     await this.getProducts();
-    await this.searchProducts();
     this.getMe();
   },
   methods: {
@@ -77,6 +88,7 @@ export default {
       this.searchedProducts = res.data;
       this.searched = true;
       this.catClick = false;
+      this.$store.state.main = false;
     },
     async getProducts() {
       const res = await axios.get(`${BASE_URL}/products`);
@@ -108,6 +120,7 @@ export default {
       this.category = res.data;
       this.searched = false;
       this.catClick = true;
+      this.$store.state.main = false;
     },
     getDetails(id) {
       this.$router.push(`/products/${id}`);
@@ -152,6 +165,62 @@ export default {
   background-color: #28739e;
 }
 
+/* Home main section */
+
+section {
+  padding: 2rem 9%;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: url(https://i.imgur.com/JEVOSpz.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.main .content {
+  max-width: 50rem;
+  text-align: left;
+}
+
+.main .content h3 {
+  font-size: 4.5rem;
+  color: #fff;
+}
+
+.main .content span {
+  font-size: 2.5rem;
+  color: #fff;
+  padding: 1rem 0;
+  line-height: 0.5;
+}
+
+.main .content p {
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 1rem 0;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background: #fff;
+  color: #333;
+  padding: 0.9rem 2.8rem;
+  cursor: pointer;
+  font-size: 1.7rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #28739e;
+  color: white;
+}
+
 @media (min-width: 450px) {
   .search-home {
     display: none;
@@ -166,6 +235,15 @@ export default {
   .product {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  /* Home main */
+  section {
+    padding: 2rem;
+  }
+
+  .main {
+    background-position: left;
   }
 }
 
