@@ -48,7 +48,7 @@
       <div class="confirm">
         <div class="confirm__window">
           <div class="confirm__titlebar">
-            <span class="confirm__title">User Information</span>
+            <span class="confirm__title">Seller Contact Information</span>
             <button @click="unConfirm()" class="confirm__close">X</button>
           </div>
           <div class="confirm__content">

@@ -136,7 +136,7 @@ export default {
         username: this.$store.state.username
       };
       await axios.post(`${BASE_URL}/products/`, formData);
-      this.$router.push('/');
+      this.$router.push('/myproducts');
     }
   }
 };
