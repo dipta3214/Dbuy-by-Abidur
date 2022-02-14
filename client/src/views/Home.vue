@@ -1,8 +1,5 @@
 <template>
   <div class="home">
-    <!-- <span v-if="user_data"
-      ><h1>Welcome {{ user_data }}! What are you looking for?</h1></span
-    > -->
     <form @submit.prevent="searchProducts" class="search-home">
       <input
         type="text"
@@ -13,8 +10,8 @@
       />
       <button class="search-submit">Submit</button>
     </form>
-    <!-- I will work on the commented out stuffs after this bootcamp. I couldn't finish it before presentation and didn't want to delete it -->
-    <!-- <div class="product">
+
+    <div class="product">
       <div
         :key="element.title"
         v-for="element in searchedProducts"
@@ -26,7 +23,8 @@
         </div>
       </div>
     </div>
-    <div :key="element.id" v-for="element in products" class="categories">
+    <!-- I will work on the commented out stuffs after this bootcamp. I couldn't finish it before presentation and didn't want to delete it -->
+    <!-- <div :key="element.id" v-for="element in products" class="categories">
       <div v-if="products">
         <span @click="getCategories(element.category)">{{
           element.category
@@ -231,6 +229,10 @@ section {
 @media (max-width: 450px) {
   .product div div img {
     width: 150px;
+  }
+
+  .search-home {
+    margin-bottom: 10px;
   }
 
   .product {
