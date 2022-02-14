@@ -1,9 +1,24 @@
 # Dbuy-by-Abidur
 
+![](https://i.imgur.com/EnRI5De.png)
+
 ## Technologies Used
 - Vue JS
 - Django REST Framework
 - Postgres
+- JWT
+
+## Description
+it's an e-commerce site where you can buy and sell used products. You can sign up and login. I used JWT for the user authentication system.
+
+## Future Updates
+- More filtering options
+- Create a chatting systme to connect seller to buyer
+
+## Getting Started
+- Use `pipenv shell` to create a virtual environment
+- Use `python3 manage.py runserve` to run your backend server
+- Open a new terminal then `cd` into client and use 'npm run serve` to run vue server
 
 ## Deployed Link
 - [Dbuy](https://dbuy.netlify.app/)
@@ -20,3 +35,7 @@
 
 ## Social Media Links
 - [LinkedIn](https://www.linkedin.com/in/abidurrahmandipta/)
+
+## Credits
+- [JWT](https://youtu.be/IsOtVyYbPto)
+- [CSS](sanwebe.com)
