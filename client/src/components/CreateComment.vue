@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit="handleSubmit" class="form">
+    <form @submit="handleSubmit" class="form" v-if="$store.state.authenticated">
       <ul>
         <li>
           <textarea

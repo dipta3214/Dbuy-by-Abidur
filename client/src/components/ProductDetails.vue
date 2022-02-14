@@ -92,13 +92,14 @@ export default {
         `${BASE_URL}/products/${this.$route.params.id}`
       );
       this.details = res.data;
-      //   console.log(this.details.id);
     },
     async deleteProduct() {
       confirm('Are you sure you want to delete this product?');
       if (confirm) {
         await axios.delete(`${BASE_URL}/products/${this.$route.params.id}`);
         this.$router.push(`/`);
+      } else if (!confirm) {
+        alert('deletion cancelled');
       }
     },
     clickTrue() {
