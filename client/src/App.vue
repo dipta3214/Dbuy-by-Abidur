@@ -4,7 +4,8 @@
       <div class="navOne" @click="restart">
         <router-link to="/">Home</router-link>
       </div>
-      <div>
+      <!-- Will work on this after presentation. Didn't get enough time to finish it so commenting it out -->
+      <!-- <div>
         <select v-model="categories">
           <option>Categories</option>
           <option
@@ -17,7 +18,7 @@
             </button>
           </option>
         </select>
-      </div>
+      </div> -->
       <form @submit.prevent="searchProducts" class="search-bar">
         <input
           type="text"
@@ -108,8 +109,8 @@ export default {
     search: '-',
     searchedProducts: '',
     productsApp: '',
-    categories: '',
-    categoriesProducts: null,
+    // categories: '',
+    // categoriesProducts: null,
     main: true
   }),
   beforeCreate() {
@@ -181,6 +182,7 @@ export default {
     getDetails(id) {
       this.$router.push(`/products/${id}`);
     },
+    // Will work on these two functions after presentation
     async getProducts() {
       const res = await axios.get(`${BASE_URL}/products`);
       this.productsApp = res.data;

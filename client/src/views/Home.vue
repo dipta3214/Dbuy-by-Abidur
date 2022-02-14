@@ -13,7 +13,7 @@
       />
       <button class="search-submit">Submit</button>
     </form>
-
+    <!-- I will work on the commented out stuffs after this bootcamp. I couldn't finish it before presentation and didn't want to delete it -->
     <!-- <div class="product">
       <div
         :key="element.title"
@@ -33,7 +33,7 @@
         }}</span>
       </div>
     </div> -->
-    <div
+    <!-- <div
       :key="element.brand"
       v-for="element in category"
       @click="getDetails(element.id)"
@@ -43,7 +43,7 @@
         <h1>{{ element.title }}</h1>
         <img :src="element.image" alt="post" class="phone" />
       </div>
-    </div>
+    </div> -->
 
     <section class="main" id="main" v-if="$store.state.main">
       <div class="content">
@@ -115,13 +115,14 @@ export default {
           });
       }
     },
-    async getCategories(value) {
-      const res = await axios.get(`${BASE_URL}/products?category=${value}`);
-      this.category = res.data;
-      this.searched = false;
-      this.catClick = true;
-      this.$store.state.main = false;
-    },
+    // Will work on this after presentation
+    // async getCategories(value) {
+    //   const res = await axios.get(`${BASE_URL}/products?category=${value}`);
+    //   this.category = res.data;
+    //   this.searched = false;
+    //   this.catClick = true;
+    //   this.$store.state.main = false;
+    // },
     getDetails(id) {
       this.$router.push(`/products/${id}`);
     }

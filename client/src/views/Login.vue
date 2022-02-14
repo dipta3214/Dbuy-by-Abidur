@@ -65,7 +65,7 @@ export default {
           localStorage.setItem('refresh', refresh);
 
           this.$router.push('/');
-          // window.location.reload();
+          // this.$forceUpdate();
         })
         .catch((error) => {
           console.log(error);
