@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="handleSubmit" class="form">
+    <form @submit="handleSubmit" class="form">
       <h1>Update Your Product:</h1>
       <ul>
         <li>

@@ -47,7 +47,9 @@
         <router-link to="/create" v-if="$store.state.authenticated"
           >Add a product</router-link
         >
-        <span class="user">{{ $store.state.username }}</span>
+        <router-link to="/myproducts" class="user">{{
+          $store.state.username
+        }}</router-link>
         <button
           @click="submitForm"
           v-if="$store.state.authenticated"

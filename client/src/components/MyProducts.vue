@@ -5,7 +5,7 @@
       v-for="element in products"
       @click="getDetails(element.id)"
     >
-      <div v-if="$store.state.id === element.id">
+      <div v-if="element.user_id == $store.state.id">
         <h2>{{ element.title }}</h2>
         <img :src="element.image" />
       </div>
