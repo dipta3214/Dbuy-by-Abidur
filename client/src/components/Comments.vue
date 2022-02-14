@@ -15,7 +15,7 @@
           <li>
             <button
               @click="deleteComment(element.id)"
-              v-if="element.user_id === $store.state.id"
+              v-if="element.user_id == $store.state.id"
             >
               Delete
             </button>
@@ -46,7 +46,6 @@ export default {
       confirm('Do you wanna delete the comment?');
       if (confirm) {
         await axios.delete(`${BASE_URL}/comments/${element}`);
-        window.location.reload();
       }
     }
   }

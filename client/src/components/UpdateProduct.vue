@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit="handleSubmit" class="form">
+    <form @submit.prevent="handleSubmit" class="form">
       <h1>Update Your Product:</h1>
       <ul>
         <li>
@@ -173,7 +173,6 @@ export default {
         `${BASE_URL}/products/${this.$route.params.id}`,
         formData
       );
-      // this.$router.push('/');
     }
   }
 };

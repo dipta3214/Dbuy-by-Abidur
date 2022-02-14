@@ -13,7 +13,7 @@ class Product(models.Model):
     brand = models.CharField(max_length=1000)
     color = models.CharField(max_length=1000)
     price = models.CharField(max_length=1000)
-    user_id = models.CharField(max_length=1000)
+    user_id = models.CharField(max_length=1000, null=True)
     username = models.CharField(max_length=100, null=True)
 
     def __str__(self):
