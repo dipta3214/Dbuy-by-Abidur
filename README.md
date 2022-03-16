@@ -21,7 +21,7 @@ it's an e-commerce site where you can buy and sell used products. You can sign u
 ## Getting Started
 - Use `pipenv shell` to create a virtual environment
 - Use `python3 manage.py runserve` to run your backend server
-- Open a new terminal then `cd` into client and use 'npm run serve` to run vue server
+- Open a new terminal then `cd` into client and use `npm run serve` to run vue server
 
 ## 🚀 Deployed Site
 - [Dbuy](https://dbuy.netlify.app/)
