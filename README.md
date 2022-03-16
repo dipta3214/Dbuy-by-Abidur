@@ -2,7 +2,10 @@
 
 ![](https://i.imgur.com/EnRI5De.png)
 
-## Technologies Used
+## 💻 Built With
+
+Technologies used in this project.
+
 - Vue JS
 - Django REST Framework
 - Postgres
@@ -20,7 +23,7 @@ it's an e-commerce site where you can buy and sell used products. You can sign u
 - Use `python3 manage.py runserve` to run your backend server
 - Open a new terminal then `cd` into client and use 'npm run serve` to run vue server
 
-## Deployed Link
+## 🚀 Deployed Site
 - [Dbuy](https://dbuy.netlify.app/)
 
 ## Trello Board
